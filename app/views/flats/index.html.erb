@@ -1,0 +1,24 @@
+<header>
+  <div>
+        <h2>Simple AirBnB</h2>
+  </div>
+  <div >
+        <%= link_to new_flat_path do %>
+        <button type="button" class='btn btn-outline-primary'><i class="fas fa-plus"> add flat </i></button>
+        <% end %>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>All our Flats (<%=@flats.size %>)</h1>
+        <ul class='list-unstyled'>
+        <% @flats.each do |flat| %>
+          <li>
+            <%= link_to flat.name, flat_path(flat)%>
+          </li>
+        <% end %>
+        </ul>
+    </div>
+  </div>
+</div>
