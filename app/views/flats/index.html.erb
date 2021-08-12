@@ -1,10 +1,14 @@
-<header>
-  <div>
-        <h2>Simple AirBnB</h2>
+<header class="d-flex align-items-end">
+  <div class='d-inline-flex p-2'>
+        <h4>Simple AirBnB</h4>
   </div>
-  <div >
+  <div class='ml-auto d-inline-flex p-2' >
+      <input type="text" value="search for" class='text-align-right'>
+      <button type="submit" class='btn btn-outline-primary p-1'>Search</button>
+  </div>
+  <div class='d-inline-flex p-2' >
         <%= link_to new_flat_path do %>
-        <button type="button" class='btn btn-outline-primary'><i class="fas fa-plus"> add flat </i></button>
+        <button type="button" class='btn btn-outline-primary p-1'>add flat</button>
         <% end %>
   </div>
 </header>
@@ -12,11 +16,18 @@
   <div class="row">
     <div class="col">
       <h1>All our Flats (<%=@flats.size %>)</h1>
-        <ul class='list-unstyled'>
+        <div class='d-flex'>
         <% @flats.each do |flat| %>
-          <li>
-            <%= link_to flat.name, flat_path(flat)%>
-          </li>
+          <div class="card">
+            <div>
+              <h4><%= link_to flat.name, flat_path(flat)%><h4>
+              <p><i class="fas fa-users"> <%= flat.number_of_guests%></i></p>
+              <p><i class="fas fa-euro-sign"> <%= flat.price_per_night%></i></p>
+            </div>
+            <div>
+              <%= link_to%>
+            </div>
+          </div>
         <% end %>
         </ul>
     </div>
